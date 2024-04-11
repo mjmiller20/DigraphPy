@@ -12,7 +12,8 @@ def main():
     for node in data["nodes"]:
         g.add_node(node["name"], node["location"], node["speed"])
     for edge in data["edges"]:
-        g.add_edge(edge["node1"], edge["node2"], edge["distance"], edge["latency"], edge["error_rate"])
+        g.add_edge(edge["node1"], edge["node2"], edge["distance"], edge["latency"], edge["error"])
+    #print(g)
 
 if __name__ == "__main__":
     main()

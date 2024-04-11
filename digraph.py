@@ -8,16 +8,6 @@ class node:
         self.location = location
         self.speed = speed
     
-    def __init__(self, name, location):
-        self.name = name
-        self.location = location
-        self.speed = 0
-    
-    def __init__(self, name):
-        self.name = name
-        self.location = 0
-        self.speed = 0
-    
     def __str__(self) -> str:
         return (self.name + "\nLocation: " + self.location + "\nSpeed: " + self.speed)
 
@@ -46,8 +36,8 @@ class graph:
     def add_node(self, name, location):
         self.nodes.append(node(name, location))
 
-    def add_node(self, name):  
-        self.nodes.append(node(name))
+    def add_node(self, name, location, speed):  
+        self.nodes.append(node(name, location, speed))
     
     def __locate_node(self, name):
         for n in self.nodes:
