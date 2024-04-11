@@ -1,0 +1,144 @@
+{
+    "nodes": [
+        {
+            "name": "A",
+            "location": "Atlanta",
+            "speed": 100
+        },
+        {
+            "name": "B",
+            "location": "Boston",
+            "speed": 100
+        },
+        {
+            "name": "C",
+            "location": "Calgary",
+            "speed": 100
+        },
+        {
+            "name": "D",
+            "location": "Detroit",
+            "speed": 100
+        },
+        {
+            "name": "E",
+            "location": "Edmonton",
+            "speed": 100
+        },
+        {
+            "name": "F",
+            "location": "Fargo",
+            "speed": 100
+        },
+        {
+            "name": "G",
+            "location": "Grand Forks",
+            "speed": 100
+        },
+        {
+            "name": "H",
+            "location": "Houston",
+            "speed": 100
+        },
+        {
+            "name": "I",
+            "location": "Indianapolis",
+            "speed": 100
+        },
+        {
+            "name": "J",
+            "location": "Jacksonville",
+            "speed": 100
+        },
+        {
+            "name": "K",
+            "location": "Kansas City",
+            "speed": 100
+        },
+        {
+            "name": "L",
+            "location": "Los Angeles",
+            "speed": 100
+        },
+        {
+            "name": "M",
+            "location": "Miami",
+            "speed": 100
+        },
+        {
+            "name": "N",
+            "location": "New York",
+            "speed": 100
+        },
+        {
+            "name": "O",
+            "location": "Oklahoma City",
+            "speed": 100
+        },
+        {
+            "name": "P",
+            "location": "Portland",
+            "speed": 100
+        },
+        {
+            "name": "Q",
+            "location": "Quebec",
+            "speed": 100
+        },
+        {
+            "name": "R",
+            "location": "Raleigh",
+            "speed": 100
+        },
+        {
+            "name": "S",
+            "location": "Seattle",
+            "speed": 100
+        },
+        {
+            "name": "T",
+            "location": "Toronto",
+            "speed": 100
+        },
+        {
+            "name": "U",
+            "location": "Utah",
+            "speed": 100
+        },
+        {
+            "name": "V",
+            "location": "Vancouver",
+            "speed": 100
+        },
+        {
+            "name": "W",
+            "location": "Washington",
+            "speed": 100
+        },
+        {
+            "name": "X",
+            "location": "Xenia",
+            "speed": 100
+        },
+        {
+            "name": "Y",
+            "location": "Yuma",
+            "speed": 100
+        },
+        {
+            "name": "Z",
+            "location": "Zanesville",
+            "speed": 100
+        }
+    ],
+    "edges": [
+        {
+            "node1": "A",
+            "node2": "B",
+            "distance": 100,
+            "latency": 10,
+            "error": 0.01
+        }
+        
+    ]
+}
