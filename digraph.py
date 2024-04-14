@@ -9,7 +9,7 @@ class node:
         self.speed = speed
     
     def __str__(self) -> str:
-        return (self.name + "\nLocation: " + self.location + "\nSpeed: " + self.speed)
+        return (self.name + "\nLocation: " + self.location + "\nTransceiver Speed: " + str(self.speed))
 
 
 class edge:
@@ -22,7 +22,7 @@ class edge:
         self.speed = speed
     
     def __str__(self) -> str:
-        return (self.node1 + " -> " + self.node2 + "\nDistance: " + self.distance + "\nLatency: " + self.latency + "\nError Rate: " + self.error_rate + "\nSpeed: " + self.speed)
+        return (str(self.node1) + " -> " + str(self.node2) + "\nDistance: " + str(self.distance) + "\nLatency: " + str(self.latency) + "\nError Rate: " + str(self.error_rate) + "\nSpeed: " + str(self.speed))
 
 
 class graph:
@@ -60,8 +60,15 @@ class graph:
     def get_nodes(self):
         return self.nodes
     
+    def print_nodes(self):
+        for n in self.nodes:
+            print(n)
     def get_edges(self):
         return self.graph
+    
+    def print_edges(self):
+        for e in self.graph:
+            print(e)
     
     def __str__(self) -> str:
         s = ""
