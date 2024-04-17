@@ -21,15 +21,7 @@ def test_edge():
     assert e.latency == 2
     assert e.error_rate == 0.1
     assert e.speed == 1
-    assert str(e) == """node1
-Location: location1
-Transceiver Speed: 1 -> node2
-Location: location2
-Transceiver Speed: 2
-Distance: 1
-Latency: 2
-Error Rate: 0.1
-Speed: 1"""
+    assert str(e) == "node1\nLocation: location1\nTransceiver Speed: 1 -> node2\nLocation: location2\nTransceiver Speed: 2\nDistance: 1\nLatency: 2\nError Rate: 0.1\nSpeed: 1"
 
 def test_graph():
     g = digraph.graph()

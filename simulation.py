@@ -6,15 +6,15 @@ from digraph import graph
 import json
 
 def main():
-    f = open("network.json", "r")
-    data = json.load(f)
-    g = graph()
-    for node in data["nodes"]:
-        g.add_node(node["name"], node["location"], node["speed"])
-    for edge in data["edges"]:
-        g.add_edge(edge["node1"], edge["node2"], edge["distance"], edge["latency"], edge["error"])
-    g.print_nodes()
-    g.print_edges()
+    with open("network.json", "r") as file:
+        data = json.load(file)
+        g = graph()
+        for node in data["nodes"]:
+            g.add_node(node["name"], node["location"], node["speed"])
+        for edge in data["edges"]:
+            g.add_edge(edge["node1"], edge["node2"], edge["distance"], edge["latency"], edge["error"])
+        g.print_nodes()
+        g.print_edges()
     return 0
 
 if __name__ == "__main__":
