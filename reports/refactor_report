@@ -1,0 +1,98 @@
+Michael Miller – Design, Maintenance, and Quality Project
+
+	Refactoring was performed on this codebase. Several samples of refactoring can be found in this change. The refactoring was performed to improve the code quality and maintainability of the codebase. Changes include:
+1.	Renaming variables to be more descriptive and meaningful to improve readability of the codebase,
+
+An example of this is in simulation.py
+
+f = open("network.json", "r")
+data = json.load(f)
+
+which is replaced by 
+
+file = open(“network.json”, ”r)
+data = json.load(file)
+
+to improve readability by removing dead code (Fowler, Basic: Rename Variable).
+
+2.	Introducing error checking to code to increase safety and reliability
+
+An example of this is shown in simulation.py
+
+file = open(“network.json”, ”r)
+data = json.load(file)
+
+which is changed to
+
+with open("network.json", "r") as file:
+        data = json.load(file)
+
+This allows for any import errors to be handled in code execution (Fowler, Errors: Replace Error Code with Exception)
+
+3.	Removing unused functions (dead code) to improve readability and maintainability of the codebase, 
+
+Functions removed in this process are in digraph.py
+
+def get_nodes(self):
+        return self.nodes
+def get_edges(self):
+        return self.graph
+
+which were removed as these functions would not be utilized inside or outside the class in addition to not providing useful information as the nodes are anonymized in their creation in the graph class. (Fowler, Remove: Remove Dead Code)
+
+4.	Adding input and value validation to class definitions to ensure values are input correctly and code will not break,
+
+Places where input validation would be implemented in digraph.py
+
+def add_node(self, name, location, speed):
+        self.nodes.append(node(name, location, speed))
+def add_edge(self, node1, node2, distance, latency, error_rate):
+        n1 = self.__locate_node(node1)
+        n2 = self.__locate_node(node2)
+        self.graph.append(edge(n1, n2, distance, latency, error_rate, n1.speed if n1.speed < n2.speed else n2.speed))
+
+which would change to check inputs like so
+
+def add_node(self, name, location, speed):
+        if type(name) != str or type(location) != str or type(speed) != int:
+            print("Invalid type")
+            return
+        if name in [n.name for n in self.nodes]:
+            print("Node already exists")
+            return
+        if speed <= 0:
+            print("Speed must be a positive nonzero value")
+            return
+        if name == "" or location == "":
+            print("Name and location must not be empty")
+            return
+        self.nodes.append(node(name, location, speed))
+def add_edge(self, node1, node2, distance, latency, error_rate):
+        if type(distance) != int or type(latency) != int or type(error_rate) != float:
+            print("Invalid type")
+            return
+        if distance <= 0 or latency <= 0 or error_rate < 0 or error_rate > 1:
+            print("Numeric values must be nonzero positive values and error rate must be between 0 and 1")
+            return
+        n1 = self.__locate_node(node1)
+        n2 = self.__locate_node(node2)
+        if(n1 == None or n2 == None):
+            print("Node not found")
+            return
+        self.graph.append(edge(n1, n2, distance, latency, error_rate, n1.speed if n1.speed < n2.speed else n2.speed))
+
+which apply checks that record errors in inputs and values to make the code safer. (Fowler, Errors: Replace Error Code with Precheck)
+
+5.	Making corrections to the codebase to ensure the code will execute as expected.
+
+A sample of this change would include changing
+
+if e.node1.name == name:
+                edges.append(e)
+
+to this version
+
+if e.node1.name == name or e.node2.name == name:
+                edges.append(e)
+
+which resolved an issue that was not noticed originally which would not throw an error in syntax but would cause a bug that would be hard to notice in the future. (Fowler, Simplify Conditional Logic: Consolidate Conditional Logic)

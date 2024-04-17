@@ -138,7 +138,62 @@
             "distance": 100,
             "latency": 10,
             "error": 0.01
+        },
+        {
+            "node1": "A",
+            "node2": "C",
+            "distance": 100,
+            "latency": 10,
+            "error": 0.01
+        },
+        {
+            "node1": "A",
+            "node2": "D",
+            "distance": 100,
+            "latency": 10,
+            "error": 0.01
+        },
+        {
+            "node1": "A",
+            "node2": "E",
+            "distance": 100,
+            "latency": 10,
+            "error": 0.01
+        },
+        {
+            "node1": "A",
+            "node2": "F",
+            "distance": 100,
+            "latency": 10,
+            "error": 0.01
+        },
+        {
+            "node1": "A",
+            "node2": "G",
+            "distance": 100,
+            "latency": 10,
+            "error": 0.01
+        },
+        {
+            "node1": "A",
+            "node2": "H",
+            "distance": 100,
+            "latency": 10,
+            "error": 0.01
+        },
+        {
+            "node1": "A",
+            "node2": "I",
+            "distance": 100,
+            "latency": 10,
+            "error": 0.01
+        },
+        {
+            "node1": "A",
+            "node2": "J",
+            "distance": 100,
+            "latency": 10,
+            "error": 0.01
         }
-        
     ]
 }

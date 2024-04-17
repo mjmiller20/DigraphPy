@@ -1,33 +1,14 @@
-# digraph.py
-# Author: Michael Miller 11005764@live.mercer.edu
-# Digraph class for the network simulator
+Michael Miller – Design, Maintenance, and Quality Project
 
-class node:
-    def __init__(self, name, location, speed):
-        self.name = name
-        self.location = location
-        self.speed = speed
-    
-    def __str__(self) -> str:
-        return (self.name + "\nLocation: " + self.location + "\nTransceiver Speed: " + str(self.speed) + "Gbps")
-
-
-class edge:
-    def __init__(self, node1, node2, distance, latency, error_rate, speed):
-        self.node1 = node1
-        self.node2 = node2
-        self.distance = distance
-        self.latency = latency
-        self.error_rate = error_rate
-        self.speed = speed
-    
-    def __str__(self) -> str:
-        return (str(self.node1) + " -> " + str(self.node2) + "\nDistance: " + str(self.distance) + "Km\nLatency: " + str(self.latency) + "ms\nError Rate: " + str(self.error_rate) + "%\nSpeed: " + str(self.speed) + "Gbps")
+	This project has implemented the singleton design based on description from Head First Design Patterns, Freeman & Robson. Problems the implementation of this design pattern resolve include many safety features for the simulation script, as well as implementing more controls on the class-side, allowing for simplifying the simulation script. Key features of this design include a public class to instantiate and maintain one singular control object, this class implements functions to make changes to the control object, and the public class functions implements controls and safety features to handle the external changes and any problems that might arise internally from the private class. 
+	As components of this implementation, the first change I made was to add a custom error to handle value, type, and array errors safely and as expected.
 
 class valueError(Exception):
     def __init__(self, message) -> None:
         self.message = message
         super().__init__(self.message)
+
+	The next change implemented was to convert the public graph class to private dgraph class. Each function had error handling changed from conditional logic to the value error, and input validation would be migrated out to the public class. 
 
 class dgraph:
     def __init__(self):
@@ -100,6 +81,8 @@ class dgraph:
                 e.distance = distance
                 return
         raise valueError("Edge not found")
+
+	The public class, graph, handles instantiation of a new dgraph object, labeled map. Implementation of the value-checking features formerly implemented in the private dgraph class, including new controls and checks are implemented here, too. Additionally, while more exceptions are raised in this class for the value checking, the handling of all exceptions in the public and private classes are handled in these functions. 
 
 class graph(dgraph):
     map = dgraph()
@@ -193,3 +176,6 @@ class graph(dgraph):
             return self.map.get_edges_on_node(name)
         except valueError as e:
             print(e.message)
+
+	Despite the improvements to the code in implementing this design pattern, these changes do introduce more complication, increasing the time to implement new changes in the future. Each function is organized into two classes instead of one, with the main difference between execution of each is sematic. 
+	An alternative to the singleton design pattern implemented could be the command design pattern. I typically like to implement this pattern as it includes built-in security through obscurity, but with how closely this codebase had the classes integrated with the file access provided by the simulation script.
