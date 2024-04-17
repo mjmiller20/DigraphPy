@@ -1,6 +1,0 @@
-# DigraphPy
-
-This project is designed to simulate a network of Layer 3 devices at a high level, using several significant variables to show network features. the script digraph.py is used to generate a graph of the network, and the script network.py is used to generate a table of the network. The network is a directed graph, with each node representing a device and each edge representing a connection between devices. The network is generated randomly, with the number of devices and the number of connections between devices being the two significant variables. The network is generated using the following steps:
-1. Utilizing the network.json file, record network devices in the nodes list, filling out the device name, device location, and configured transceiver speeds,
-2. Continue the network.json file, record physical connections between devices in the edges list, filling out the source device, destination device, length of the patch between devices, measured latency between devices, measured error rate between devices, and configured speed of the connection between devices, and
-3. Run the simulation.py script to generate the network graph and network table, which will print the network graph and network table to the console.
